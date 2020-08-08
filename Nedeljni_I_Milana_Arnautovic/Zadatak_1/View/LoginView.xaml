@@ -36,7 +36,7 @@
             </Button>
             <Button
                 Content="Registration"
-                Command="{Binding SignUp}" 
+                Command="{Binding Registration}" 
                Margin="111,25,98.8,25" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
         </StackPanel>
     </Border>

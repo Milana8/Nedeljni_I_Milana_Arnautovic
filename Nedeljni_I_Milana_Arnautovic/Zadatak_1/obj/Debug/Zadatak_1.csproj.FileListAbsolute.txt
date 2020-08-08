@@ -23,3 +23,9 @@ C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnauto
 C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\Zadatak_1.csproj.CopyComplete
 C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\Zadatak_1.exe
 C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\Zadatak_1.pdb
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\RegistrationView.g.cs
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\RegistrationView.baml
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\EmployeeRegView.g.cs
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\ManagerRegView.g.cs
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\EmployeeRegView.baml
+C:\Users\Korisnik\Desktop\Nedeljni_I_Milana_Arnautovic\Nedeljni_I_Milana_Arnautovic\Zadatak_1\obj\Debug\View\ManagerRegView.baml

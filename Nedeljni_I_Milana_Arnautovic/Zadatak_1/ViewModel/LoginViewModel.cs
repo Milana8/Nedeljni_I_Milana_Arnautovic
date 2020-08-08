@@ -93,6 +93,31 @@ namespace Zadatak_1.ViewModel
             }
         }
 
+        private ICommand registration;
+
+        public ICommand Registration
+        {
+            get
+            {
+                if (registration == null)
+                {
+                    registration = new RelayCommand(param => RegistrationExecute(), param => CanRegistrationExecute());
+                }
+                return registration;
+            }
+        }
+
+        public bool CanRegistrationExecute()
+        {
+            return true;
+        }
+
+        public void RegistrationExecute()
+        {
+            RegistrationView registrationView = new RegistrationView();
+            registrationView.ShowDialog();
+        }
+
 
         #endregion
     }
