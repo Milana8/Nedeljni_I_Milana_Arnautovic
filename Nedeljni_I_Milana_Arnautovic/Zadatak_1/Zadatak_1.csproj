@@ -64,6 +64,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Model\Nedeljni_I_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblAdministrator.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblEmployee.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblManager.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblPosition.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblProject.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblSector.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblUser.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vwAdministrator.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vwEmployee.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vwManager.cs">
+      <DependentUpon>Nedeljni_I_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MasterView.xaml.cs">
+      <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,14 +121,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MasterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nedeljni_I_DB.Context.cs">
+    <Compile Include="Model\Nedeljni_I_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Nedeljni_I_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Nedeljni_I_DB.Designer.cs">
+    <Compile Include="Model\Nedeljni_I_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Nedeljni_I_DB.edmx</DependentUpon>
@@ -105,11 +158,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Nedeljni_I_DB.edmx">
+    <EntityDeploy Include="Model\Nedeljni_I_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Nedeljni_I_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Nedeljni_I_DB.edmx.diagram">
+    <None Include="Model\Nedeljni_I_DB.edmx.diagram">
       <DependentUpon>Nedeljni_I_DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -122,13 +175,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Nedeljni_I_DB.Context.tt">
+    <Content Include="Model\Nedeljni_I_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Nedeljni_I_DB.Context.cs</LastGenOutput>
+      <DependentUpon>Nedeljni_I_DB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Nedeljni_I_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Nedeljni_I_DB.edmx</DependentUpon>
+      <LastGenOutput>Nedeljni_I_DB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

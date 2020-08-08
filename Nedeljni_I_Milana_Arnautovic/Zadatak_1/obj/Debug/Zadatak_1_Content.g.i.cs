@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("nedeljni_i_db.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("nedeljni_i_db.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/nedeljni_i_db.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/nedeljni_i_db.tt")]
 
 

@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Nedeljni_IModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAdministrator">
+    <Key>
+      <PropertyRef Name="AdministratorID" />
+    </Key>
+    <Property Name="AdministratorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpirationDate" Type="date" Nullable="false" />
+    <Property Name="AdministratorType" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YearsOfService" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="varchar" MaxLength="40" />
+    <Property Name="EducationDegree" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="SectorID" Type="int" />
+    <Property Name="PositionID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ReservedPassword" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="LevelOfResponsibility" Type="char" MaxLength="1" />
+    <Property Name="SuccessfulProjects" Type="int" />
+    <Property Name="Salary" Type="varchar" MaxLength="40" />
+    <Property Name="OfficeNumber" Type="varchar" MaxLength="20" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPosition">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PositionDescription" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ProjectDescription" Type="varchar" MaxLength="40" />
+    <Property Name="ClientName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ContractDate" Type="date" Nullable="false" />
+    <Property Name="ContractManager" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ProjectStartDate" Type="date" Nullable="false" />
+    <Property Name="ProjectDeadline" Type="date" Nullable="false" />
+    <Property Name="HourlyRate" Type="int" Nullable="false" />
+    <Property Name="Realisation" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ManagerID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+    </Key>
+    <Property Name="SectorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectorName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="SectorDescription" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Residence" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MarriageStatus" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Pasword" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Nedeljni_I.dbo.vwAdministrator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAdministrator">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="ExpirationDate" />
+      <PropertyRef Name="AdministratorType" />
+      <PropertyRef Name="AdministratorID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Residence" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MarriageStatus" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Pasword" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ExpirationDate" Type="date" Nullable="false" />
+    <Property Name="AdministratorType" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="AdministratorID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Nedeljni_I.dbo.vwEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwEmployee">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="YearsOfService" />
+      <PropertyRef Name="EducationDegree" />
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Residence" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MarriageStatus" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Pasword" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="YearsOfService" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="varchar" MaxLength="40" />
+    <Property Name="EducationDegree" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="SectorID" Type="int" />
+    <Property Name="PositionID" Type="int" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Nedeljni_I.dbo.vwManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwManager">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="ReservedPassword" />
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="JMBG" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Residence" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MarriageStatus" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Pasword" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ReservedPassword" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Salary" Type="varchar" MaxLength="40" />
+    <Property Name="LevelOfResponsibility" Type="char" MaxLength="1" />
+    <Property Name="SuccessfulProjects" Type="int" />
+    <Property Name="OfficeNumber" Type="varchar" MaxLength="20" />
+    <Property Name="ManagerID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblAdmini__UserI__4D94879B">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblAdministrator" Type="Self.tblAdministrator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblAdministrator">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Posit__4BAC3F29">
+    <End Role="tblPosition" Type="Self.tblPosition" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPosition">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Secto__4AB81AF0">
+    <End Role="tblSector" Type="Self.tblSector" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSector">
+        <PropertyRef Name="SectorID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="SectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__UserI__49C3F6B7">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblManage__UserI__4CA06362">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblManager">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Manag__4E88ABD4">
+    <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblManager">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="tblProject">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Nedeljni_IModelStoreContainer">
+    <EntitySet Name="tblAdministrator" EntityType="Self.tblAdministrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblManager" EntityType="Self.tblManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPosition" EntityType="Self.tblPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSector" EntityType="Self.tblSector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwAdministrator" EntityType="Self.vwAdministrator" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAdministrator].[UserID] AS [UserID], 
+    [vwAdministrator].[FirstName] AS [FirstName], 
+    [vwAdministrator].[Surname] AS [Surname], 
+    [vwAdministrator].[JMBG] AS [JMBG], 
+    [vwAdministrator].[Gender] AS [Gender], 
+    [vwAdministrator].[Residence] AS [Residence], 
+    [vwAdministrator].[MarriageStatus] AS [MarriageStatus], 
+    [vwAdministrator].[Username] AS [Username], 
+    [vwAdministrator].[Pasword] AS [Pasword], 
+    [vwAdministrator].[ExpirationDate] AS [ExpirationDate], 
+    [vwAdministrator].[AdministratorType] AS [AdministratorType], 
+    [vwAdministrator].[AdministratorID] AS [AdministratorID]
+    FROM [dbo].[vwAdministrator] AS [vwAdministrator]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwEmployee" EntityType="Self.vwEmployee" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwEmployee].[UserID] AS [UserID], 
+    [vwEmployee].[FirstName] AS [FirstName], 
+    [vwEmployee].[Surname] AS [Surname], 
+    [vwEmployee].[JMBG] AS [JMBG], 
+    [vwEmployee].[Gender] AS [Gender], 
+    [vwEmployee].[Residence] AS [Residence], 
+    [vwEmployee].[MarriageStatus] AS [MarriageStatus], 
+    [vwEmployee].[Username] AS [Username], 
+    [vwEmployee].[Pasword] AS [Pasword], 
+    [vwEmployee].[YearsOfService] AS [YearsOfService], 
+    [vwEmployee].[Salary] AS [Salary], 
+    [vwEmployee].[EducationDegree] AS [EducationDegree], 
+    [vwEmployee].[SectorID] AS [SectorID], 
+    [vwEmployee].[PositionID] AS [PositionID], 
+    [vwEmployee].[EmployeeID] AS [EmployeeID]
+    FROM [dbo].[vwEmployee] AS [vwEmployee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwManager" EntityType="Self.vwManager" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwManager].[UserID] AS [UserID], 
+    [vwManager].[FirstName] AS [FirstName], 
+    [vwManager].[Surname] AS [Surname], 
+    [vwManager].[JMBG] AS [JMBG], 
+    [vwManager].[Gender] AS [Gender], 
+    [vwManager].[Residence] AS [Residence], 
+    [vwManager].[MarriageStatus] AS [MarriageStatus], 
+    [vwManager].[Username] AS [Username], 
+    [vwManager].[Pasword] AS [Pasword], 
+    [vwManager].[Email] AS [Email], 
+    [vwManager].[ReservedPassword] AS [ReservedPassword], 
+    [vwManager].[Salary] AS [Salary], 
+    [vwManager].[LevelOfResponsibility] AS [LevelOfResponsibility], 
+    [vwManager].[SuccessfulProjects] AS [SuccessfulProjects], 
+    [vwManager].[OfficeNumber] AS [OfficeNumber], 
+    [vwManager].[ManagerID] AS [ManagerID]
+    FROM [dbo].[vwManager] AS [vwManager]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tblAdmini__UserI__4D94879B" Association="Self.FK__tblAdmini__UserI__4D94879B">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblAdministrator" EntitySet="tblAdministrator" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Posit__4BAC3F29" Association="Self.FK__tblEmploy__Posit__4BAC3F29">
+      <End Role="tblPosition" EntitySet="tblPosition" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Secto__4AB81AF0" Association="Self.FK__tblEmploy__Secto__4AB81AF0">
+      <End Role="tblSector" EntitySet="tblSector" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__UserI__49C3F6B7" Association="Self.FK__tblEmploy__UserI__49C3F6B7">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblManage__UserI__4CA06362" Association="Self.FK__tblManage__UserI__4CA06362">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblManager" EntitySet="tblManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Manag__4E88ABD4" Association="Self.FK__tblProjec__Manag__4E88ABD4">
+      <End Role="tblManager" EntitySet="tblManager" />
+      <End Role="tblProject" EntitySet="tblProject" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
