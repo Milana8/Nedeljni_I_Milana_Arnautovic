@@ -135,5 +135,47 @@ namespace Zadatak_1
                 return null;
             }
         }
+
+        public bool AddAdministrator(vwAdministrator administrator)
+        {
+            try
+            {
+                using (Nedeljni_IEntities context = new Nedeljni_IEntities())
+                {
+                    tblUser newUser = new tblUser
+                    {
+                        FirstName = administrator.FirstName,
+                        Surname = administrator.Surname,
+                        JMBG = administrator.JMBG,
+                        Gender = administrator.Gender,
+                        Residence = administrator.Residence,
+                        MarriageStatus = administrator.MarriageStatus,
+                        Username = administrator.Username,
+                        Pasword = administrator.Pasword,
+                    };
+                    context.tblUsers.Add(newUser);
+                    context.SaveChanges();
+                    administrator.UserID = newUser.UserID;
+
+                    tblAdministrator newAdministrator = new tblAdministrator
+                    {
+                        UserID = newUser.UserID,
+                        ExpirationDate = administrator.ExpirationDate,
+                        AdministratorType = administrator.AdministratorType,
+                       
+
+                    };
+                    context.tblAdministrators.Add(newAdministrator);
+                    context.SaveChanges();
+                    administrator.AdministratorID = newAdministrator.AdministratorID;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }

@@ -80,8 +80,7 @@ namespace Zadatak_1.ViewModel
                     masterView.ShowDialog();
                 }
 
-
-
+                
                 else
                 {
                     MessageBox.Show("Incorrect username or password");
