@@ -62,34 +62,21 @@ namespace Zadatak_1.ViewModel
         }
         private void SaveExecute()
         {
-            if (String.IsNullOrEmpty(administrator.FirstName) ||
-                String.IsNullOrEmpty(administrator.Surname) ||
-                String.IsNullOrEmpty(administrator.JMBG) ||
-                String.IsNullOrEmpty(administrator.Username) ||
-                String.IsNullOrEmpty(administrator.Pasword) ||
-                 String.IsNullOrEmpty(administrator.Gender) ||
-                  String.IsNullOrEmpty(administrator.Residence) ||
-                   String.IsNullOrEmpty(administrator.MarriageStatus) ||
-                   String.IsNullOrEmpty(administrator.AdministratorType)
-                     )
+            try
             {
-                MessageBox.Show("Please fill all fields.");
-            }
-            else
 
-                try
-                {
-                    //if (!Validation.IsValid(Administrator.JMBG))
-                    //{
-                    //    MessageBox.Show("JMBG is not valid");
-                    //    return;
-                    //}
-                    //else if (!Validation.PasswordValidation(Administrator.Pasword))
-                    //{
-                    //    MessageBox.Show("Password Hint must contain at least 5 caracters. Try again");
-                    //    return;
-                    //}
-                    Administrator.ExpirationDate = DateTime.Now.AddDays(7);
+           
+                //    if (!Validation.IsValid(Administrator.JMBG))
+                //{
+                //    MessageBox.Show("JMBG is not valid");
+                //    return;
+                //}
+                //else if (!Validation.PasswordValidation(Administrator.Pasword))
+                //{
+                //    MessageBox.Show("Password Hint must contain at least 5 caracters. Try again");
+                //    return;
+                //}
+                /*Administrator.ExpirationDate = DateTime.Now.AddDays(7)*/;
 
                     MessageBoxResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
@@ -118,9 +105,22 @@ namespace Zadatak_1.ViewModel
 
         private bool CanSaveExecute()
         {
-            return true;
+            if (String.IsNullOrEmpty(administrator.FirstName) ||
+                String.IsNullOrEmpty(administrator.Surname) ||
+                String.IsNullOrEmpty(administrator.JMBG) ||
+                String.IsNullOrEmpty(administrator.Username) ||
+                String.IsNullOrEmpty(administrator.Pasword) ||
+                 String.IsNullOrEmpty(administrator.Gender) ||
+                  String.IsNullOrEmpty(administrator.Residence) ||
+                   String.IsNullOrEmpty(administrator.MarriageStatus) ||
+                   String.IsNullOrEmpty(administrator.AdministratorType)
+                     )
+            {
+                return false;
+            }
+            else
+                return true;
         }
-
 
         // Cancel Button
         private ICommand cancel;
