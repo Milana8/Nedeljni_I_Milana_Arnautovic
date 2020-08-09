@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Nedeljni_IModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAdministrator">
+    <Key>
+      <PropertyRef Name="AdministratorID" />
+    </Key>
+    <Property Name="AdministratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AdministratorType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblAdmini__UserI__4D94879B" FromRole="tblAdministrator" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YearsOfService" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="SectorID" Type="Int32" />
+    <Property Name="PositionID" Type="Int32" />
+    <NavigationProperty Name="tblPosition" Relationship="Self.FK__tblEmploy__Posit__4BAC3F29" FromRole="tblEmployee" ToRole="tblPosition" />
+    <NavigationProperty Name="tblSector" Relationship="Self.FK__tblEmploy__Secto__4AB81AF0" FromRole="tblEmployee" ToRole="tblSector" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblEmploy__UserI__49C3F6B7" FromRole="tblEmployee" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="tblManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReservedPassword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LevelOfResponsibility" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SuccessfulProjects" Type="Int32" />
+    <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblManage__UserI__4CA06362" FromRole="tblManager" ToRole="tblUser" />
+    <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__Manag__4E88ABD4" FromRole="tblManager" ToRole="tblProject" />
+  </EntityType>
+  <EntityType Name="tblPosition">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PositionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Posit__4BAC3F29" FromRole="tblPosition" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectDescription" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ClientName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContractDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContractManager" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ProjectDeadline" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HourlyRate" Type="Int32" Nullable="false" />
+    <Property Name="Realisation" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ManagerID" Type="Int32" />
+    <NavigationProperty Name="tblManager" Relationship="Self.FK__tblProjec__Manag__4E88ABD4" FromRole="tblProject" ToRole="tblManager" />
+  </EntityType>
+  <EntityType Name="tblSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+    </Key>
+    <Property Name="SectorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectorName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SectorDescription" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Secto__4AB81AF0" FromRole="tblSector" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Residence" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarriageStatus" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pasword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblAdministrators" Relationship="Self.FK__tblAdmini__UserI__4D94879B" FromRole="tblUser" ToRole="tblAdministrator" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__UserI__49C3F6B7" FromRole="tblUser" ToRole="tblEmployee" />
+    <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__4CA06362" FromRole="tblUser" ToRole="tblManager" />
+  </EntityType>
+  <EntityType Name="vwAdministrator">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="ExpirationDate" />
+      <PropertyRef Name="AdministratorType" />
+      <PropertyRef Name="AdministratorID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Residence" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarriageStatus" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pasword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AdministratorType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwEmployee">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="YearsOfService" />
+      <PropertyRef Name="EducationDegree" />
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Residence" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarriageStatus" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pasword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="YearsOfService" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SectorID" Type="Int32" />
+    <Property Name="PositionID" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwManager">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="Surname" />
+      <PropertyRef Name="JMBG" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Residence" />
+      <PropertyRef Name="MarriageStatus" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Pasword" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="ReservedPassword" />
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Residence" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarriageStatus" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pasword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReservedPassword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="LevelOfResponsibility" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SuccessfulProjects" Type="Int32" />
+    <Property Name="OfficeNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ManagerID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblAdmini__UserI__4D94879B">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblAdministrator" Type="Self.tblAdministrator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblAdministrator">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Posit__4BAC3F29">
+    <End Role="tblPosition" Type="Self.tblPosition" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPosition">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Secto__4AB81AF0">
+    <End Role="tblSector" Type="Self.tblSector" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSector">
+        <PropertyRef Name="SectorID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="SectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__UserI__49C3F6B7">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblManage__UserI__4CA06362">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblManager">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Manag__4E88ABD4">
+    <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
+    <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblManager">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="tblProject">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Nedeljni_IEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdministrators" EntityType="Self.tblAdministrator" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblManagers" EntityType="Self.tblManager" />
+    <EntitySet Name="tblPositions" EntityType="Self.tblPosition" />
+    <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+    <EntitySet Name="tblSectors" EntityType="Self.tblSector" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <EntitySet Name="vwAdministrators" EntityType="Self.vwAdministrator" />
+    <EntitySet Name="vwEmployees" EntityType="Self.vwEmployee" />
+    <EntitySet Name="vwManagers" EntityType="Self.vwManager" />
+    <AssociationSet Name="FK__tblAdmini__UserI__4D94879B" Association="Self.FK__tblAdmini__UserI__4D94879B">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblAdministrator" EntitySet="tblAdministrators" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Posit__4BAC3F29" Association="Self.FK__tblEmploy__Posit__4BAC3F29">
+      <End Role="tblPosition" EntitySet="tblPositions" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Secto__4AB81AF0" Association="Self.FK__tblEmploy__Secto__4AB81AF0">
+      <End Role="tblSector" EntitySet="tblSectors" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__UserI__49C3F6B7" Association="Self.FK__tblEmploy__UserI__49C3F6B7">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblManage__UserI__4CA06362" Association="Self.FK__tblManage__UserI__4CA06362">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblManager" EntitySet="tblManagers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Manag__4E88ABD4" Association="Self.FK__tblProjec__Manag__4E88ABD4">
+      <End Role="tblManager" EntitySet="tblManagers" />
+      <End Role="tblProject" EntitySet="tblProjects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
