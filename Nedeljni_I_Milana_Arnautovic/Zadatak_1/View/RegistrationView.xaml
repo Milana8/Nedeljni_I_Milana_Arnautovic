@@ -8,11 +8,11 @@
         Title="REGISTRATION" Height="400" Width="500" >
     <Grid>
         <Button
-                Content="Manager"
+                Content="Manager Registration"
                 Command="{Binding ManagerReg}" 
                Margin="140,101,166.6,210.4" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
         <Button
-                Content="Employee"
+                Content="Employee Registration"
                 Command="{Binding EmployeeReg}" 
                Margin="140,225,166.6,86.4" Background="#545d6a" Foreground="White" FontSize="18" IsDefault="True"/>
     </Grid>

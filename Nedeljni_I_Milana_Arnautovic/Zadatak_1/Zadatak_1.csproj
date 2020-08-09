@@ -103,6 +103,8 @@
     <Compile Include="Service.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ManagerRegViewModel.cs" />
+    <Compile Include="ViewModel\MasterViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\EmployeeRegView.xaml.cs">

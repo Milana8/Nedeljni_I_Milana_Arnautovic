@@ -142,28 +142,25 @@ namespace Zadatak_1
             {
                 using (Nedeljni_IEntities context = new Nedeljni_IEntities())
                 {
-                    tblUser newUser = new tblUser
+                    tblUser user = new tblUser
                     {
-                        FirstName = administrator.FirstName,
-                        Surname = administrator.Surname,
-                        JMBG = administrator.JMBG,
                         Gender = administrator.Gender,
+                        JMBG = administrator.JMBG,
                         Residence = administrator.Residence,
                         MarriageStatus = administrator.MarriageStatus,
-                        Username = administrator.Username,
+                        FirstName = administrator.FirstName,
                         Pasword = administrator.Pasword,
+                        Surname = administrator.Surname,
+                        Username = administrator.Username
                     };
-                    context.tblUsers.Add(newUser);
+                    context.tblUsers.Add(user);
                     context.SaveChanges();
-                    administrator.UserID = newUser.UserID;
-
+                    administrator.UserID = user.UserID;
                     tblAdministrator newAdministrator = new tblAdministrator
                     {
-                        UserID = newUser.UserID,
+                        UserID = user.UserID,
                         ExpirationDate = administrator.ExpirationDate,
-                        AdministratorType = administrator.AdministratorType,
-                       
-
+                        AdministratorType = administrator.AdministratorType
                     };
                     context.tblAdministrators.Add(newAdministrator);
                     context.SaveChanges();
